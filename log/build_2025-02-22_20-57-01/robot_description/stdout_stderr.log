@@ -1,0 +1,92 @@
+-- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Found urdf: 2.6.1 (/opt/ros/humble/share/urdf/cmake)
+-- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+-- Added test 'copyright' to check source files copyright and LICENSE
+-- Added test 'flake8' to check Python code syntax and style conventions
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/mickyas/wheeled_quadruped_robot/build/robot_description
+-- Install configuration: ""
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//robot
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//robot/quadruped_robot.urdf
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//robot/parts
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//robot/parts/rear_wheel
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//robot/parts/rear_wheel/rear_wheel.gazebo
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//robot/parts/rear_wheel/rear_wheel.xacro
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//robot/parts/leg_joint
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//robot/parts/leg_joint/leg_joint.gazebo.xacro
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//robot/parts/leg_joint/leg_joint.xacro
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//robot/parts/rear_left_thigh
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//robot/parts/rear_left_thigh/rear_left_thigh.xacro
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//robot/parts/rear_left_thigh/rear_left_thigh.gazebo.xacro
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//robot/parts/front_wheel
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//robot/parts/front_wheel/front_wheel.gazebo
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//robot/parts/front_wheel/front_wheel.xacro
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//robot/parts/front_left_thigh
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//robot/parts/front_left_thigh/front_left_thigh.gazebo.xacro
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//robot/parts/front_left_thigh/front_left_thigh.xacro
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//robot/parts/rear_right_thigh
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//robot/parts/rear_right_thigh/rear_right_thigh.xacro
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//robot/parts/rear_right_thigh/rear_right_thigh.gazebo.xacro
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//robot/parts/front_right_thigh
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//robot/parts/front_right_thigh/front_right_thigh.gazebo.xacro
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//robot/parts/front_right_thigh/front_right_thigh.xacro
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//robot/parts/base
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//robot/parts/base/base.xacro
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//robot/parts/base/base.gazebo.xacro
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//robot/parts/shin
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//robot/parts/shin/shin.gazebo.xacro
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//robot/parts/shin/shin.xacro
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//robot/quadruped_robot.xacro
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//robot/robot_control_gazebo.xacro
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//robot/quadruped_robot
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//robot/quadruped_robot/quadruped_robot.usd
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//meshes
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//meshes/STL
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//meshes/STL/leg_joint
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//meshes/STL/leg_joint/leg_joint.stl
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//meshes/STL/right_thigh
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//meshes/STL/right_thigh/right_thigh.stl
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//meshes/STL/body
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//meshes/STL/body/body.stl
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//meshes/STL/wheel
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//meshes/STL/wheel/wheel.stl
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//meshes/STL/left_thigh
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//meshes/STL/left_thigh/left_thigh.stl
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//meshes/STL/shin
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//meshes/STL/shin/shin.stl
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//meshes/DAE
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//meshes/DAE/leg_joint
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//meshes/DAE/leg_joint/leg_joint.dae
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//meshes/DAE/right_thigh
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//meshes/DAE/right_thigh/right_thigh.dae
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//meshes/DAE/body
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//meshes/DAE/body/body.dae
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//meshes/DAE/wheel
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//meshes/DAE/wheel/wheel.dae
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//meshes/DAE/left_thigh
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//meshes/DAE/left_thigh/left_thigh.dae
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//meshes/DAE/shin
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//meshes/DAE/shin/shin.dae
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//config
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//config/robot1_controller.yaml
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//launch
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description//launch/robot_state_publisher.launch.py
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/ament_index/resource_index/package_run_dependencies/robot_description
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/ament_index/resource_index/parent_prefix_path/robot_description
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description/environment/ament_prefix_path.sh
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description/environment/ament_prefix_path.dsv
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description/environment/path.sh
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description/environment/path.dsv
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description/local_setup.bash
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description/local_setup.sh
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description/local_setup.zsh
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description/local_setup.dsv
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description/package.dsv
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/ament_index/resource_index/packages/robot_description
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description/cmake/robot_descriptionConfig.cmake
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description/cmake/robot_descriptionConfig-version.cmake
+-- Installing: /home/mickyas/wheeled_quadruped_robot/install/robot_description/share/robot_description/package.xml

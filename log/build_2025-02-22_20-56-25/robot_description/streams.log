@@ -1,0 +1,23 @@
+[0.012s] Invoking command in '/home/mickyas/wheeled_quadruped_robot/build/robot_description': CONDA_PROMPT_MODIFIER=(base) /usr/bin/cmake /home/mickyas/wheeled_quadruped_robot/src/robot_description -DCMAKE_INSTALL_PREFIX=/home/mickyas/wheeled_quadruped_robot/install/robot_description
+[0.027s] -- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.204s] -- Found urdf: 2.6.1 (/opt/ros/humble/share/urdf/cmake)
+[0.242s] -- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[0.270s] Traceback (most recent call last):
+[0.270s]   File "/opt/ros/humble/share/ament_cmake_core/cmake/core/package_xml_2_cmake.py", line 22, in <module>
+[0.270s]     from catkin_pkg.package import parse_package_string
+[0.270s] ModuleNotFoundError: No module named 'catkin_pkg'
+[0.275s] [31mCMake Error at /opt/ros/humble/share/ament_cmake_core/cmake/core/ament_package_xml.cmake:95 (message):
+[0.275s]   execute_process(/home/mickyas/miniconda3/bin/python3
+[0.275s]   /opt/ros/humble/share/ament_cmake_core/cmake/core/package_xml_2_cmake.py
+[0.275s]   /home/mickyas/wheeled_quadruped_robot/src/robot_description/package.xml
+[0.275s]   /home/mickyas/wheeled_quadruped_robot/build/robot_description/ament_cmake_core/package.cmake)
+[0.275s]   returned error code 1
+[0.275s] Call Stack (most recent call first):
+[0.275s]   /opt/ros/humble/share/ament_cmake_core/cmake/core/ament_package_xml.cmake:49 (_ament_package_xml)
+[0.275s]   /opt/ros/humble/share/ament_lint_auto/cmake/ament_lint_auto_find_test_dependencies.cmake:31 (ament_package_xml)
+[0.275s]   CMakeLists.txt:25 (ament_lint_auto_find_test_dependencies)
+[0.275s] 
+[0.275s] [0m
+[0.275s] -- Configuring incomplete, errors occurred!
+[0.275s] See also "/home/mickyas/wheeled_quadruped_robot/build/robot_description/CMakeFiles/CMakeOutput.log".
+[0.281s] Invoked command in '/home/mickyas/wheeled_quadruped_robot/build/robot_description' returned '1': CONDA_PROMPT_MODIFIER=(base) /usr/bin/cmake /home/mickyas/wheeled_quadruped_robot/src/robot_description -DCMAKE_INSTALL_PREFIX=/home/mickyas/wheeled_quadruped_robot/install/robot_description

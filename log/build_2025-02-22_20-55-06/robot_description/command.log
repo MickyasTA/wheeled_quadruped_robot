@@ -1,0 +1,2 @@
+Invoking command in '/home/mickyas/wheeled_quadruped_robot/build/robot_description': CONDA_PROMPT_MODIFIER=(base) /usr/bin/cmake /home/mickyas/wheeled_quadruped_robot/src/robot_description -DCMAKE_INSTALL_PREFIX=/home/mickyas/wheeled_quadruped_robot/install/robot_description
+Invoked command in '/home/mickyas/wheeled_quadruped_robot/build/robot_description' returned '1': CONDA_PROMPT_MODIFIER=(base) /usr/bin/cmake /home/mickyas/wheeled_quadruped_robot/src/robot_description -DCMAKE_INSTALL_PREFIX=/home/mickyas/wheeled_quadruped_robot/install/robot_description
