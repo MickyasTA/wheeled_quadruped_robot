@@ -1,4 +1,0 @@
-{
-    "ros.distro": "humble",
-    "cmake.sourceDirectory": "/home/mickyas/wheeled_quadruped_robot/src/robot_description"
-}
