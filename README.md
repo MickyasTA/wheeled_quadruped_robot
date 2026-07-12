@@ -89,12 +89,12 @@ The task is a **Markov Decision Process** solved with PPO. The policy observes p
 
 **Terminations:** episode time-out (**5 s**), or `bad_orientation` when the torso tilts more than **π/3 (60°)** from upright (i.e. the robot has fallen).
 
-**Simulation & scene:** 4096 parallel environments, 4 m spacing, ground plane, dome + distant lighting. Physics runs at **200 Hz** (`dt = 0.005`) with decimation 2 → a **100 Hz** control rate. Wheels use velocity-mode actuators (high damping, zero stiffness); hips use position-mode actuators (high stiffness).
+**Simulation & scene:** 4096 parallel environments, 4 m spacing, ground plane, dome + distant lighting. Physics runs at **200 Hz** (`dt = 0.005`) with decimation 2 → a **100 Hz** control rate. Wheels use velocity-mode actuators (high damping, zero stiffness); thighs use position-mode actuators (high stiffness).
 
 ```mermaid
 flowchart LR
     P["PPO policy<br/>MLP [32, 32], ELU"]
-    P -- "4 actions<br/>(wheel vel + hip pos)" --> S["Isaac Sim physics<br/>4096 envs @ 200 Hz"]
+    P -- "4 actions<br/>(wheel vel + thigh pos)" --> S["Isaac Sim physics<br/>4096 envs @ 200 Hz"]
     S -- "obs: base lin/ang vel + last action" --> P
     S -- "reward: alive + height − fall" --> R["PPO update<br/>(rsl_rl / rl_games / SB3 / skrl)"]
     R -.->|updated weights| P
