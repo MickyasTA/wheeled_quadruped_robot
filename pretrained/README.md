@@ -6,6 +6,10 @@ Final trained policies for the two tasks, ready to use without retraining. Each 
 |---|---|:---:|:---:|:---:|:---:|
 | [`balance/`](balance/) | Balance in place (`Wheeled-Quadruped-Balance-v0`) | 1000 | ≈ 19.5 | 1000 / 1000 | — |
 | [`velocity/`](velocity/) | Drive while balancing (`Wheeled-Quadruped-Velocity-v0`) | 3000 | ≈ 28.2 | 1000 / 1000 | lin ≈ 0.85, yaw ≈ 0.43 |
+| [`balance_rough/`](balance_rough/) | Balance on rough terrain (`Wheeled-Quadruped-Balance-Rough-v0`) | 1500 | ≈ 7.5 | ≈ 948 / 1000 | — |
+| [`velocity_rough/`](velocity_rough/) | Drive on rough terrain (`Wheeled-Quadruped-Velocity-Rough-v0`) | 3000 | ≈ 18.4 | ≈ 878 / 1000 | lin ≈ 0.55, yaw ≈ 0.30 |
+
+The `*_rough` folders hold the checkpoints `model_1499.pt` / `model_2999.pt` respectively; everything below (file formats, observation layout, inference) is identical across all four — the rough policies use the same network shape and onboard-only observations, just trained on uneven terrain.
 
 ## Files in each folder
 

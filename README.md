@@ -28,6 +28,17 @@ Both policies below were trained end-to-end in this repo and are **shipped ready
 
 <sub><i>Full-resolution clips: <a href="docs/videos/velocity_demo.mp4">velocity_demo.mp4</a> · <a href="docs/videos/balance_demo.mp4">balance_demo.mp4</a></i></sub>
 
+<br/><br/>
+
+**On uneven ground** — the same tasks trained on generated rough terrain (random roughness + gentle slopes, with a terrain-difficulty curriculum):
+
+| **Drive on rough terrain** (velocity-rough) | **Balance on rough terrain** (balance-rough) |
+|:---:|:---:|
+| <img src="docs/images/velocity_rough_demo.gif" width="380" alt="Wheeled quadruped driving over uneven terrain while balancing"> | <img src="docs/images/balance_rough_demo.gif" width="380" alt="Wheeled quadruped balancing on uneven terrain"> |
+| Tracks a forward command while rolling over bumps and slopes. | Stays upright on uneven ground under random pushes. |
+
+<sub><i>Full-resolution clips: <a href="docs/videos/velocity_rough_demo.mp4">velocity_rough_demo.mp4</a> · <a href="docs/videos/balance_rough_demo.mp4">balance_rough_demo.mp4</a></i></sub>
+
 </div>
 
 ---
@@ -337,14 +348,16 @@ Both tasks were trained to convergence on a single RTX 4090 Laptop GPU (16 GB), 
 
 | Task | Iterations | Mean reward | Episode length | Lin-vel tracking | Yaw tracking |
 |---|:---:|:---:|:---:|:---:|:---:|
-| **Balance** | 1000 | ≈ 19.5 | **1000 / 1000** | — | — |
-| **Velocity** | 3000 | ≈ 28.2 | **1000 / 1000** | ≈ 0.85 / 1.0 | ≈ 0.43 / 0.5 |
+| **Balance** (flat) | 1000 | ≈ 19.5 | **1000 / 1000** | — | — |
+| **Velocity** (flat) | 3000 | ≈ 28.2 | **1000 / 1000** | ≈ 0.85 / 1.0 | ≈ 0.43 / 0.5 |
+| **Balance-rough** | 1500 | ≈ 7.5 | ≈ 948 / 1000 | — | — |
+| **Velocity-rough** | 3000 | ≈ 18.4 | ≈ 878 / 1000 | ≈ 0.55 / 1.0 | ≈ 0.30 / 0.5 |
 
-The balancer learned to stand in a sharp transition around iteration 500–600 (episode length jumping from ~13 steps to the full episode). The velocity policy learned to stay up and follow commands remarkably fast (episode length ~886 by iteration 200), then spent the remaining iterations refining tracking accuracy. See the GIFs at the [top of this README](#trained-policies-in-action).
+The balancer learned to stand in a sharp transition around iteration 500–600 (episode length jumping from ~13 steps to the full episode). The velocity policy learned to stay up and follow commands remarkably fast (episode length ~886 by iteration 200), then spent the remaining iterations refining tracking accuracy. The **rough-terrain** policies converge a bit lower — uneven ground plus random pushes occasionally topple the robot, so episode length settles below the flat 1000 and tracking accuracy is lower — but both clearly learn to stay up and (for velocity-rough) drive across the bumps, with the terrain curriculum steadily promoting robots to rougher tiles. See the GIFs at the [top of this README](#trained-policies-in-action).
 
 ## Pretrained models
 
-The final trained policies are committed in [`pretrained/`](pretrained/) for immediate use — no training required. Each task folder ships three forms of the same network:
+All four trained policies are committed in [`pretrained/`](pretrained/) for immediate use — no training required: `balance/`, `velocity/`, `balance_rough/`, and `velocity_rough/`. Each task folder ships three forms of the same network:
 
 | File | Format | Use it for |
 |---|---|---|
