@@ -30,3 +30,8 @@ log/
 *.swp
 .DS_Store
 Thumbs.db
+
+# Pretrained policies are intentionally published for public use
+# (overrides the *.pt / *.onnx ignores above)
+!pretrained/
+!pretrained/**
