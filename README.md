@@ -355,6 +355,14 @@ On flat ground the tuning is a clean win: yaw error drops about 14% with linear 
 
 The policies are trained in Isaac Sim (PhysX). To check they are not overfit to one physics engine, [`sim2sim_mujoco/`](sim2sim_mujoco/) runs the exact same exported actors in **MuJoCo**, an independent simulator, which is a cheap rehearsal for the eventual sim-to-real gap. The MuJoCo model is rebuilt from the robot URDF (so it is a genuine cross-engine test, not a replay), with observations, joint order, and actuators matched to the Isaac task; the actor runs in pure numpy.
 
+<div align="center">
+
+<img src="docs/images/sim2sim_demo.gif" width="70%" alt="The Isaac-trained policy running in MuJoCo, an independent physics engine, driving over rough terrain">
+
+<sub><i>The same trained policy running in MuJoCo, a different physics engine from the one it was trained in. Full clip: <a href="docs/videos/sim2sim_demo.mp4">sim2sim_demo.mp4</a></i></sub>
+
+</div>
+
 | Policy | MuJoCo episode length | Full-episode survival |
 |---|:---:|:---:|
 | Balance | 1000 / 1000 | 100% |

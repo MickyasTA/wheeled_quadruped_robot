@@ -23,6 +23,7 @@ This wiki is written as a **course, not a reference dump**. It builds from the p
 | 08 | **[Asymmetric Actor-Critic & Sim2Real](08-Asymmetric-Actor-Critic-and-Sim2Real.md)** | Why the **critic** sees privileged clean state ($v$, $h$) while the **actor** sees only noisy onboard signals, the variance argument that justifies it, domain randomization term-by-term, and exactly what gets exported to hardware. |
 | 09 | **[Code Architecture](09-Code-Architecture.md)** | A file-by-file tour: the external-extension package pattern, the gym-registration chain (5 ids from an import side effect), the train/play/verify scripts, the end-to-end data flow, on-disk logs, and how to extend the code. |
 | 10 | **[Training & Reproducing](10-Training-and-Reproducing.md)** | The lab manual: the software stack and install gotchas, the verify → train → play → export workflow with copy-pasteable commands, the **real learning curves**, TensorBoard reading, a reward-tuning playbook, and the roadmap. |
+| 11 | **[Sim-to-Sim Validation](11-Sim-to-Sim-Validation.md)** | Running the trained policies in **MuJoCo**, an independent physics engine, as a cheap rehearsal for sim-to-real: how the model is rebuilt from the URDF, the matched observation/action contract, the cross-engine results (3 of 4 survive every episode), and the terrain-fidelity lesson. |
 
 ---
 
@@ -37,7 +38,7 @@ If you are new to reinforcement learning, robotics, or this project, read the pa
 flowchart LR
     H([Home]) --> P1[01 Overview] --> P2[02 Robot] --> P3[03 RL / MDP] --> P4[04 Isaac Lab]
     P4 --> P5[05 Balance] --> P6[06 Velocity] --> P7[07 PPO]
-    P7 --> P8[08 Asym A-C / Sim2Real] --> P9[09 Code] --> P10[10 Training]
+    P7 --> P8[08 Asym A-C / Sim2Real] --> P9[09 Code] --> P10[10 Training] --> P11[11 Sim-to-Sim]
 ```
 
 ### Reference path — jump to what you need
@@ -51,6 +52,7 @@ If you already know PPO and just want a specific answer:
 | Know why the policy is deployable on real hardware | [08 Asymmetric Actor-Critic & Sim2Real](08-Asymmetric-Actor-Critic-and-Sim2Real.md) |
 | Find the code behind a behavior, or add a task | [09 Code Architecture](09-Code-Architecture.md) |
 | Actually run training / play / export | [10 Training & Reproducing](10-Training-and-Reproducing.md) |
+| See the policies validated in a second physics engine (MuJoCo) | [11 Sim-to-Sim Validation](11-Sim-to-Sim-Validation.md) |
 | Understand Isaac Lab's managers and the `step()` loop | [04 Isaac Lab Architecture](04-Isaac-Lab-Architecture.md) |
 
 ---
