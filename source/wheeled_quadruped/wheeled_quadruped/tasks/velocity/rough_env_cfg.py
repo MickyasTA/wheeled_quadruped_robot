@@ -12,6 +12,8 @@ demoted. This is the standard Isaac Lab locomotion recipe, applied to a wheeled
 balancer.
 """
 
+import math
+
 from isaaclab.managers import CurriculumTermCfg as CurrTerm
 from isaaclab.utils import configclass
 
@@ -42,6 +44,11 @@ class WheeledQuadrupedVelocityRoughEnvCfg(WheeledQuadrupedVelocityEnvCfg):
         # enable progressive-difficulty terrain generation to match the curriculum
         if self.scene.terrain.terrain_generator is not None:
             self.scene.terrain.terrain_generator.curriculum = True
+        # The stronger yaw-tracking reward (set in velocity_env_cfg) is a clean win on
+        # flat ground, but on rough terrain it trades off forward-speed tracking. Keep
+        # the balanced weights here so uneven-ground driving stays well-rounded.
+        self.rewards.track_ang_vel_z.weight = 0.5
+        self.rewards.track_ang_vel_z.params["std"] = math.sqrt(0.25)
 
 
 @configclass

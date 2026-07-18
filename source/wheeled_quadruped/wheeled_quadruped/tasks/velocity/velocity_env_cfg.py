@@ -91,10 +91,13 @@ class VelocityRewardsCfg(RewardsCfg):
     )
     track_ang_vel_z = RewTerm(
         func=mdp.track_ang_vel_z_exp,
-        weight=0.5,
+        # Yaw tracking previously plateaued below linear tracking. Raise its weight to
+        # match linear (0.5 -> 1.0) and tighten the exp kernel (std sqrt(0.25) -> sqrt(0.15))
+        # so the policy is rewarded for more precise turning.
+        weight=1.0,
         params={
             "command_name": "base_velocity",
-            "std": math.sqrt(0.25),
+            "std": math.sqrt(0.15),
             "asset_cfg": SceneEntityCfg("robot"),
         },
     )
