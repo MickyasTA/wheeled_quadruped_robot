@@ -93,7 +93,7 @@ The key idea to carry through every page: the **actor is deliberately blindfolde
 
 ## Notation glossary
 
-Every page uses the symbols below with the same meaning. This is the canonical reference; skim it once and refer back as needed. (In the joint vector, the fixed order is $q = [\text{front\_left\_thigh},\ \text{front\_right\_thigh},\ \text{rl\_wheel},\ \text{rr\_wheel}]$.)
+Every page uses the symbols below with the same meaning. This is the canonical reference; skim it once and refer back as needed. (In the joint vector, the fixed order is $q = [\text{front-left-thigh},\ \text{front-right-thigh},\ \text{rl-wheel},\ \text{rr-wheel}]$.)
 
 ### Time and control
 
@@ -128,7 +128,7 @@ Every page uses the symbols below with the same meaning. This is the canonical r
 
 | Symbol | Meaning | Value / units |
 |---|---|---|
-| $q$ | Joint positions, order $[\text{FL\_thigh},\text{FR\_thigh},\text{rl\_wheel},\text{rr\_wheel}]$ | $\in \mathbb{R}^4$; rad |
+| $q$ | Joint positions, order $[\text{FL-thigh},\text{FR-thigh},\text{rl-wheel},\text{rr-wheel}]$ | $\in \mathbb{R}^4$; rad |
 | $\dot q$ | Joint velocities | $\in \mathbb{R}^4$; rad/s |
 | $q_{\text{default}}$ | Default / nominal joint positions | $\mathbf{0}$ rad |
 | $v = (v_x,v_y,v_z)$ | Base (torso) linear velocity | m/s |
@@ -136,7 +136,7 @@ Every page uses the symbols below with the same meaning. This is the canonical r
 | $g_b = R_b^{\top}\hat g$ | Projected gravity (world "down" in base frame) | unit vector; $\approx(0,0,-1)$ upright |
 | $R_b$ | Base-to-world rotation matrix; $\hat g = (0,0,-1)$ | — |
 | $h = p_z$ | Base height (world $z$ of the base origin) | m; target $h^\star = 0.828$ |
-| $c = (c_x,c_y,c_z)$ | Commanded velocity $=(\text{lin\_vel\_x}^\star,\text{lin\_vel\_y}^\star,\text{ang\_vel\_z}^\star)$ | (m/s, m/s, rad/s); velocity task only |
+| $c = (c_x,c_y,c_z)$ | Commanded velocity $=(\text{lin-vel-x}^\star,\text{lin-vel-y}^\star,\text{ang-vel-z}^\star)$ | (m/s, m/s, rad/s); velocity task only |
 
 ### Actuator / physical model
 

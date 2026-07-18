@@ -41,3 +41,10 @@ class WheeledQuadrupedVelocityPPORunnerCfg(RslRlOnPolicyRunnerCfg):
         desired_kl=0.01,
         max_grad_norm=1.0,
     )
+
+
+@configclass
+class WheeledQuadrupedVelocityRoughPPORunnerCfg(WheeledQuadrupedVelocityPPORunnerCfg):
+    """Drive-while-balancing on rough terrain: same PPO setup, separate log dir."""
+
+    experiment_name = "wheeled_quadruped_velocity_rough"

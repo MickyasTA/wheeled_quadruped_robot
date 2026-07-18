@@ -116,7 +116,7 @@ $$
 \Rightarrow\quad \Delta z_{\text{base}\leftarrow\text{axle}} \;=\; h_{\text{spawn}} - r \;\approx\; 0.828 - 0.1008 \;=\; 0.727\ \text{m}.
 $$
 
-In words: of the 0.828 m, about **0.10 m** is the wheel lifting the axle off the ground, and the remaining **~0.73 m** is the vertical rise from the low rear axle, up along the pitched‑up rear legs and body, to the base frame. Because the machine tips backward to balance, most of its height is this pitched‑body rise — exactly the tall, top‑heavy geometry that makes it an inverted pendulum and makes the balancing problem non‑trivial. The number 0.828 m is not arbitrary: it is precisely the base height at which the robot is in mechanical equilibrium in its two‑wheel stance, which is why the same value reappears as the **target height** in the balance reward $\big(\text{base\_height\_l2} = (p_z - 0.828)^2\big)$ and as the spawn pose (see [Balance Task](05-Balance-Task.md)).
+In words: of the 0.828 m, about **0.10 m** is the wheel lifting the axle off the ground, and the remaining **~0.73 m** is the vertical rise from the low rear axle, up along the pitched‑up rear legs and body, to the base frame. Because the machine tips backward to balance, most of its height is this pitched‑body rise — exactly the tall, top‑heavy geometry that makes it an inverted pendulum and makes the balancing problem non‑trivial. The number 0.828 m is not arbitrary: it is precisely the base height at which the robot is in mechanical equilibrium in its two‑wheel stance, which is why the same value reappears as the **target height** in the balance reward $\big(\text{base-height-l2} = (p_z - 0.828)^2\big)$ and as the spawn pose (see [Balance Task](05-Balance-Task.md)).
 
 **Track width and yaw.** The 0.44 m track width $b$ (the lateral distance between the two rear wheel contact points) is the lever arm for **differential steering**. If the left and right rear wheels spin at surface speeds $u_L = r\,\dot q_{RL}$ and $u_R = r\,\dot q_{RR}$, the body's forward speed and yaw rate are approximately
 
@@ -193,7 +193,7 @@ $$
 $R_b^{\mathsf T}$ maps a world vector into base coordinates, so $g_b$ tells the robot which way is *down relative to its own body* — a purely onboard, IMU‑derivable signal that needs no external tracking. When the trunk is level in its balancing pose, $g_b \approx (0,0,-1)$; as it tilts, the "down" vector rotates into the base $x$/$y$ components. That is precisely what the **flat‑orientation reward** penalizes:
 
 $$
-\text{flat\_orientation\_l2} \;=\; g_{b,x}^{2} + g_{b,y}^{2},
+\text{flat-orientation-l2} \;=\; g_{b,x}^{2} + g_{b,y}^{2},
 $$
 
 which is zero only when gravity points straight down the base $z$‑axis, i.e. when the trunk is upright. The balancing pose is engineered so that the base frame is level (z up) at equilibrium, even though the *quadruped body* is physically pitched up on its rear wheels — reconciling "stands pitched up" with "penalize any tilt." Details of these observation and reward terms are in [Balance Task](05-Balance-Task.md).

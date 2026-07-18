@@ -37,8 +37,8 @@ obs_groups = {"policy": ["policy"], "critic": ["critic"]}
 Inside rsl-rl 3.0.1 (`modules/actor_critic.py`) this becomes:
 
 $$
-o^{\text{actor}} = \operatorname{cat}\big(\{o[g] : g \in \text{obs\_groups[policy]}\}\big), \qquad
-o^{\text{critic}} = \operatorname{cat}\big(\{o[g] : g \in \text{obs\_groups[critic]}\}\big).
+o^{\text{actor}} = \operatorname{cat}\big(\{o[g] : g \in \text{obs-groups[policy]}\}\big), \qquad
+o^{\text{critic}} = \operatorname{cat}\big(\{o[g] : g \in \text{obs-groups[critic]}\}\big).
 $$
 
 The actor's `act()` reads only `get_actor_obs`, the critic's `evaluate()` reads only `get_critic_obs`. They never mix.
@@ -133,7 +133,7 @@ $$
 \max_\theta\; \mathbb{E}_{\xi\sim p(\xi)}\;\mathbb{E}_{\tau\sim\pi_\theta,\,\xi}\Big[\textstyle\sum_t \gamma^t r_t\Big].
 $$
 
-The events are defined in the `EventCfg` of `balance_env_cfg.py` (lines 130–190) and **inherited unchanged by the velocity task**. All uniform samples use $\text{sample\_uniform}(lo,hi)=lo+(hi-lo)\,U[0,1)$.
+The events are defined in the `EventCfg` of `balance_env_cfg.py` (lines 130–190) and **inherited unchanged by the velocity task**. All uniform samples use $\text{sample-uniform}(lo,hi)=lo+(hi-lo)\,U[0,1)$.
 
 | Event (mode) | MDP function | Randomized quantity & range | Real-world uncertainty it stands in for |
 |---|---|---|---|

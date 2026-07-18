@@ -32,3 +32,24 @@ gym.register(
         "rsl_rl_cfg_entry_point": f"{agents.__name__}.rsl_rl_ppo_cfg:WheeledQuadrupedVelocityPPORunnerCfg",
     },
 )
+
+# --- Rough-terrain variants (drive while balancing on uneven ground) ---
+gym.register(
+    id="Wheeled-Quadruped-Velocity-Rough-v0",
+    entry_point="isaaclab.envs:ManagerBasedRLEnv",
+    disable_env_checker=True,
+    kwargs={
+        "env_cfg_entry_point": f"{__name__}.rough_env_cfg:WheeledQuadrupedVelocityRoughEnvCfg",
+        "rsl_rl_cfg_entry_point": f"{agents.__name__}.rsl_rl_ppo_cfg:WheeledQuadrupedVelocityRoughPPORunnerCfg",
+    },
+)
+
+gym.register(
+    id="Wheeled-Quadruped-Velocity-Rough-Play-v0",
+    entry_point="isaaclab.envs:ManagerBasedRLEnv",
+    disable_env_checker=True,
+    kwargs={
+        "env_cfg_entry_point": f"{__name__}.rough_env_cfg:WheeledQuadrupedVelocityRoughEnvCfg_PLAY",
+        "rsl_rl_cfg_entry_point": f"{agents.__name__}.rsl_rl_ppo_cfg:WheeledQuadrupedVelocityRoughPPORunnerCfg",
+    },
+)

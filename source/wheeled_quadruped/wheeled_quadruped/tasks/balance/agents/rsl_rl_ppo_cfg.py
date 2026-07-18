@@ -41,3 +41,11 @@ class WheeledQuadrupedBalancePPORunnerCfg(RslRlOnPolicyRunnerCfg):
         desired_kl=0.01,
         max_grad_norm=1.0,
     )
+
+
+@configclass
+class WheeledQuadrupedBalanceRoughPPORunnerCfg(WheeledQuadrupedBalancePPORunnerCfg):
+    """Balance on rough terrain: same PPO setup, more iterations, separate log dir."""
+
+    max_iterations = 1500
+    experiment_name = "wheeled_quadruped_balance_rough"

@@ -131,7 +131,7 @@ and the reweighted surrogate objective $\mathbb{E}[\rho_t \hat{A}_t]$ has the co
 
 $$
 L^{CLIP}(\theta) \;=\; \mathbb{E}_t\!\left[\, \min\!\Big( \rho_t \hat{A}_t,\;\; \operatorname{clip}\big(\rho_t,\, 1{-}\varepsilon,\, 1{+}\varepsilon\big)\, \hat{A}_t \Big) \right],
-\qquad \varepsilon = 0.2 \;(\texttt{clip\_param}).
+\qquad \varepsilon = 0.2 \;(\texttt{clip-param}).
 $$
 
 ### 5.2 Why clipping works — read it case by case
@@ -175,7 +175,7 @@ The differential entropy of the Gaussian policy, $H[\pi_\theta(\cdot \mid o_t)] 
 Per minibatch, `PPO.update` builds (coefficients from both `rsl_rl_ppo_cfg.py` files — they are identical for balance and velocity):
 
 $$
-L(\theta, \phi) \;=\; \underbrace{-L^{CLIP}(\theta)}_{\text{surrogate\_loss}} \;+\; \underbrace{c_v}_{=1.0}\, L^{VF}(\phi) \;-\; \underbrace{c_e}_{=0.005}\, \mathbb{E}_t\big[H[\pi_\theta(\cdot\mid o_t)]\big],
+L(\theta, \phi) \;=\; \underbrace{-L^{CLIP}(\theta)}_{\text{surrogate-loss}} \;+\; \underbrace{c_v}_{=1.0}\, L^{VF}(\phi) \;-\; \underbrace{c_e}_{=0.005}\, \mathbb{E}_t\big[H[\pi_\theta(\cdot\mid o_t)]\big],
 $$
 
 then runs `zero_grad() → backward() → clip_grad_norm_(1.0) → optimizer.step()` (Adam). The **gradient-norm clip** `max_grad_norm=1.0` rescales the entire gradient vector if its L2 norm exceeds 1 — a final safety net against rare exploding-gradient minibatches (e.g. a batch dominated by termination transitions). Note actor and critic are updated jointly by one optimizer over the combined parameter set $(\theta, \phi)$.

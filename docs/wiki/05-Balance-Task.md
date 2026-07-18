@@ -62,7 +62,7 @@ Both groups set `concatenate_terms=True`: the terms below are flattened and conc
 
 ### 3.1 Notation for the terms
 
-- $q \in \mathbb{R}^4$ — joint positions, ordered $[\text{front\_left\_thigh}, \text{front\_right\_thigh}, \text{rl\_wheel}, \text{rr\_wheel}]$; $\dot q \in \mathbb{R}^4$ the joint velocities.
+- $q \in \mathbb{R}^4$ — joint positions, ordered $[\text{front-left-thigh}, \text{front-right-thigh}, \text{rl-wheel}, \text{rr-wheel}]$; $\dot q \in \mathbb{R}^4$ the joint velocities.
 - $q_{\text{default}}$ — the default (nominal) joint positions from the articulation's initial state. Here $q_{\text{default}} = \mathbf{0}$ (all joints spawn at 0 rad), a fact we use below.
 - $v = (v_x, v_y, v_z)$, $\omega = (\omega_x, \omega_y, \omega_z)$ — base linear and angular velocity **in the base frame**.
 - $g_b = R_b^\top \hat g$ — the **projected gravity**: the world unit gravity vector $\hat g = (0,0,-1)$ rotated into the base frame by the transpose of the base rotation matrix $R_b$. When the robot stands perfectly upright, $g_b \approx (0, 0, -1)$; any tilt shows up as nonzero $g_{b,x}, g_{b,y}$. It is the standard IMU-derivable substitute for "orientation" that avoids yaw (a yaw rotation leaves $g_b$ unchanged — the robot cannot tell which compass direction it faces, and for balancing it should not need to).
@@ -235,15 +235,15 @@ The penalties shave about 7.5 % off the alive bonus. This is the intended regime
 `TerminationsCfg` (lines 223–228) defines three boolean predicates, evaluated every control step. Firing any of them ends the episode for that environment (which is then immediately reset by the events in Section 7):
 
 $$
-\text{time\_out}: \quad t \,\Delta t \ge 20.0 \text{ s} \quad (t \ge 1000),
+\text{time-out}: \quad t \,\Delta t \ge 20.0 \text{ s} \quad (t \ge 1000),
 $$
 
 $$
-\text{bad\_orientation}: \quad \theta_{\text{tilt}} > \frac{\pi}{3} \approx 1.047 \text{ rad } (60^\circ), \qquad \cos\theta_{\text{tilt}} = -\,g_{b,z},
+\text{bad-orientation}: \quad \theta_{\text{tilt}} > \frac{\pi}{3} \approx 1.047 \text{ rad } (60^\circ), \qquad \cos\theta_{\text{tilt}} = -\,g_{b,z},
 $$
 
 $$
-\text{base\_too\_low}: \quad h < 0.4 \text{ m}.
+\text{base-too-low}: \quad h < 0.4 \text{ m}.
 $$
 
 In words: the episode ends when the clock runs out; or when the base has tipped more than 60° from vertical (the tilt angle $\theta_{\text{tilt}}$ is read off the projected gravity — upright gives $g_{b,z} = -1 \Rightarrow \theta = 0$); or when the torso has sunk below 0.4 m (roughly half the nominal height — the robot has effectively collapsed onto its front legs or the ground).

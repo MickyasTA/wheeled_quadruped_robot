@@ -52,3 +52,24 @@ gym.register(
         "rl_games_cfg_entry_point": f"{agents.__name__}:rl_games_ppo_cfg.yaml",
     },
 )
+
+# --- Rough-terrain variants (uneven ground) ---
+gym.register(
+    id="Wheeled-Quadruped-Balance-Rough-v0",
+    entry_point="isaaclab.envs:ManagerBasedRLEnv",
+    disable_env_checker=True,
+    kwargs={
+        "env_cfg_entry_point": f"{__name__}.rough_env_cfg:WheeledQuadrupedBalanceRoughEnvCfg",
+        "rsl_rl_cfg_entry_point": f"{agents.__name__}.rsl_rl_ppo_cfg:WheeledQuadrupedBalanceRoughPPORunnerCfg",
+    },
+)
+
+gym.register(
+    id="Wheeled-Quadruped-Balance-Rough-Play-v0",
+    entry_point="isaaclab.envs:ManagerBasedRLEnv",
+    disable_env_checker=True,
+    kwargs={
+        "env_cfg_entry_point": f"{__name__}.rough_env_cfg:WheeledQuadrupedBalanceRoughEnvCfg_PLAY",
+        "rsl_rl_cfg_entry_point": f"{agents.__name__}.rsl_rl_ppo_cfg:WheeledQuadrupedBalanceRoughPPORunnerCfg",
+    },
+)

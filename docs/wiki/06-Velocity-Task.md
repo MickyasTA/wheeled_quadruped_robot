@@ -66,7 +66,7 @@ base_velocity = mdp.UniformVelocityCommandCfg(
 
 The command is the 3-vector from our shared notation,
 
-$$c = (c_x,\; c_y,\; c_z) = (\text{lin\_vel\_x}^*,\; \text{lin\_vel\_y}^*,\; \text{ang\_vel\_z}^*),$$
+$$c = (c_x,\; c_y,\; c_z) = (\text{lin-vel-x}^*,\; \text{lin-vel-y}^*,\; \text{ang-vel-z}^*),$$
 
 meaning: desired forward speed $c_x$ (m/s, in the base frame), desired lateral speed $c_y$ (m/s), and desired yaw rate $c_z$ (rad/s). Isaac Lab's `UniformVelocityCommand._resample_command` (v2.3.2, `isaaclab/envs/mdp/commands/velocity_command.py`) draws each component **independently and uniformly** over its configured range:
 
@@ -94,7 +94,7 @@ To understand both the $c_y = 0$ pin and the action-scale change, derive how the
 
 - $r$ — wheel radius. The code comment in `velocity_env_cfg.py:128–131` states $r \approx 0.1008$ m (comment only; the value lives inside the binary USD asset and is not a separately configured parameter),
 - $b$ — track width (lateral distance between the two rear wheel contact points), $b \approx 0.44$ m per the same comment,
-- $\omega_L, \omega_R$ — angular velocities of the left and right rear wheels. In the joint vector $q \in \mathbb{R}^4$ (order $[\text{front\_left\_thigh}, \text{front\_right\_thigh}, \text{rl\_wheel}, \text{rr\_wheel}]$), these are $\dot q_3$ and $\dot q_4$.
+- $\omega_L, \omega_R$ — angular velocities of the left and right rear wheels. In the joint vector $q \in \mathbb{R}^4$ (order $[\text{front-left-thigh}, \text{front-right-thigh}, \text{rl-wheel}, \text{rr-wheel}]$), these are $\dot q_3$ and $\dot q_4$.
 
 Under pure rolling, each wheel's contact point moves forward at its rim speed: $v_L = r\,\omega_L$ and $v_R = r\,\omega_R$. The base sits midway between the wheels, so its forward velocity is the average of the two contact velocities, and the yaw rate comes from their *difference* acting across the track (the two wheels form a lever arm of length $b$ about the midpoint):
 

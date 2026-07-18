@@ -13,12 +13,6 @@ The robot stands pitched up, balancing segway-style on its two rear wheels. Usin
 [![Algorithm](https://img.shields.io/badge/Algorithm-PPO-4B8BBE)](https://arxiv.org/abs/1707.06347)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-<br/>
-
-<img src="docs/images/robot.png" alt="Wheeled quadruped robot balancing upright in Isaac Sim" width="46%">
-
-<sub><i>The wheeled quadruped balancing upright in Isaac Sim (target base height ≈ 0.83 m).</i></sub>
-
 </div>
 
 ## Trained policies in action
@@ -182,8 +176,21 @@ flowchart LR
 | `Custom-Wheeled-Quadruped-v0` | Legacy alias → same balance config | `WheeledQuadrupedBalanceEnvCfg` |
 | `Wheeled-Quadruped-Velocity-v0` | Drive to a commanded forward/yaw velocity while balancing | `WheeledQuadrupedVelocityEnvCfg` |
 | `Wheeled-Quadruped-Velocity-Play-v0` | Velocity, eval variant (fixed forward command) | `WheeledQuadrupedVelocityEnvCfg_PLAY` |
+| `Wheeled-Quadruped-Balance-Rough-v0` | Balance on uneven ground (generated rough terrain) | `WheeledQuadrupedBalanceRoughEnvCfg` |
+| `Wheeled-Quadruped-Velocity-Rough-v0` | Drive while balancing on uneven ground, with a terrain curriculum | `WheeledQuadrupedVelocityRoughEnvCfg` |
+
+*(Each rough task also has a `-Rough-Play-v0` eval variant.)*
 
 The velocity task extends the balancer: it adds a `UniformVelocityCommand` (with lateral velocity pinned to zero, since a two-wheel stance cannot translate sideways), appends the command to both observation groups, adds exponential velocity-tracking rewards, and softens the balance-hold shaping so the policy is free to drive. See [docs/TRAINING.md](docs/TRAINING.md) for the full design.
+
+### Rough terrain (uneven ground)
+
+The `*-Rough-v0` tasks swap the flat ground plane for a **generated rough terrain** ([`source/wheeled_quadruped/wheeled_quadruped/terrains/`](source/wheeled_quadruped/wheeled_quadruped/terrains/__init__.py)) so the policy learns to stay up on uneven surfaces. Because a two-wheel balancer cannot climb stairs, the terrain is tuned for wheels — **low-amplitude random roughness (~1–6 cm) plus gentle slopes (≤ ~11°), no stairs or boxes**. The velocity-rough task adds a **terrain-level curriculum** (`terrain_levels_vel`): robots that track their command well are promoted to rougher tiles, those that fall behind are demoted. Train them exactly like the flat tasks:
+
+```bash
+python scripts/rsl_rl/train.py --task Wheeled-Quadruped-Balance-Rough-v0 --headless --num_envs 2048
+python scripts/rsl_rl/train.py --task Wheeled-Quadruped-Velocity-Rough-v0 --headless --num_envs 2048
+```
 
 ## The robot
 
@@ -373,6 +380,8 @@ A full, textbook-style **[project wiki](docs/wiki/Home.md)** (`docs/wiki/`) expl
 - [x] Scaffold a velocity-command tracking task on top of the balancer.
 - [x] Train the velocity task to convergence.
 - [x] Commit trained checkpoints + demo GIFs/videos (see [`pretrained/`](pretrained/)).
+- [x] Rough-terrain tasks (uneven ground) with a terrain-level curriculum.
+- [ ] Train the rough-terrain policies to convergence and ship their checkpoints.
 - [ ] Further tune the velocity reward weights (yaw tracking headroom).
 - [ ] Sim-to-real: deploy the onboard-only policy on the physical robot.
 - [ ] USD/asset hygiene: move the USD to Git LFS if it grows.
