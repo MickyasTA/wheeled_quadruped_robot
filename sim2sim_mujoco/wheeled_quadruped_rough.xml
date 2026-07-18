@@ -18,71 +18,71 @@
       <freejoint name="root" />
       <body name="robot1_base_link" quat="0.707107 0 -0.707107 0">
         <inertial pos="0.01 0 0.09" quat="-0.0111942 0.705368 -0.00744327 0.708713" mass="9.5" diaginertia="0.430029 0.399988 0.0749829" />
-        <geom type="mesh" mesh="body" />
+        <geom type="mesh" mesh="body" rgba="0.95 0.75 0.08 1" />
         <body name="robot1_rear_left_leg_joint_link" pos="-0.277 0.06 0.089405" quat="0.5 0.5 0.5 -0.5">
           <inertial pos="0 0 -0.038" mass="1.16" diaginertia="0.002 0.002 0.001" />
-          <geom type="mesh" mesh="leg_joint" />
+          <geom type="mesh" mesh="leg_joint" rgba="0.95 0.75 0.08 1" />
           <body name="robot1_rear_left_thigh_link" pos="0 0 -0.114" quat="0.270598 0.270598 -0.653282 -0.653281">
             <inertial pos="0.17 -0.028 0.014" mass="1.24" diaginertia="0.002 0.002 0.001" />
-            <geom type="mesh" mesh="left_thigh" />
+            <geom type="mesh" mesh="left_thigh" rgba="0.95 0.75 0.08 1" />
             <body name="robot1_rear_left_shin_link" pos="0.426 -0.0285 0" quat="0.819152 0 -0.573576 0">
               <inertial pos="-0.158 0.011 0" quat="0.514758 0.507531 0.49315 0.483984" mass="0.66" diaginertia="0.0290588 0.0290001 0.000241165" />
-              <geom type="mesh" mesh="shin" />
+              <geom type="mesh" mesh="shin" rgba="0.95 0.75 0.08 1" />
               <body name="robot1_rl_wheel_link" pos="-0.345 -0.0165 0" quat="-4.32051e-08 0 0 1">
                 <inertial pos="0 0.01 0" quat="0.707107 0 0 0.707107" mass="0.64" diaginertia="0.00325 0.001647 0.001647" />
                 <joint name="robot1_rl_wheel_joint" pos="0 0 0" axis="0 1 0" actuatorfrcrange="-100 100" />
-                <geom type="mesh" mesh="wheel" />
+                <geom type="mesh" mesh="wheel" rgba="0.95 0.75 0.08 1" />
               </body>
             </body>
           </body>
         </body>
         <body name="robot1_rear_right_leg_joint_link" pos="-0.277 -0.06 0.089405" quat="0.5 -0.5 -0.5 -0.5">
           <inertial pos="0 0 -0.038" mass="1.16" diaginertia="0.002 0.002 0.001" />
-          <geom type="mesh" mesh="leg_joint" />
+          <geom type="mesh" mesh="leg_joint" rgba="0.95 0.75 0.08 1" />
           <body name="robot1_rear_right_thigh_link" pos="0 0 -0.114" quat="-0.653281 -0.653282 0.270598 0.270598">
             <inertial pos="0.17 -0.028 -0.014" mass="1.24" diaginertia="0.002 0.002 0.001" />
-            <geom type="mesh" mesh="right_thigh" />
+            <geom type="mesh" mesh="right_thigh" rgba="0.95 0.75 0.08 1" />
             <body name="robot1_rear_right_shin_link" pos="0.426 -0.0285 0" quat="-3.53915e-08 0.819152 -2.47814e-08 -0.573576">
               <inertial pos="-0.158 0.011 0" quat="0.514758 0.507531 0.49315 0.483984" mass="0.66" diaginertia="0.0290588 0.0290001 0.000241165" />
-              <geom type="mesh" mesh="shin" />
+              <geom type="mesh" mesh="shin" rgba="0.95 0.75 0.08 1" />
               <body name="robot1_rr_wheel_link" pos="-0.345 0.0165 0">
                 <inertial pos="0 0.01 0" quat="0.707107 0 0 0.707107" mass="0.64" diaginertia="0.00325 0.001647 0.001647" />
                 <joint name="robot1_rr_wheel_joint" pos="0 0 0" axis="0 -1 0" actuatorfrcrange="-100 100" />
-                <geom type="mesh" mesh="wheel" />
+                <geom type="mesh" mesh="wheel" rgba="0.95 0.75 0.08 1" />
               </body>
             </body>
           </body>
         </body>
         <body name="robot1_front_left_leg_joint_link" pos="0.282 0.06 0.090255" quat="0.541675 0.454519 0.454519 -0.541675">
           <inertial pos="0 0 -0.038" mass="1.16" diaginertia="0.002 0.002 0.001" />
-          <geom type="mesh" mesh="leg_joint" />
+          <geom type="mesh" mesh="leg_joint" rgba="0.95 0.75 0.08 1" />
           <body name="robot1_front_left_thigh_link" pos="0 0 -0.114" quat="0.379928 0.379928 -0.596368 -0.596368">
             <inertial pos="0.17 -0.028 0.014" mass="1.24" diaginertia="0.002 0.002 0.001" />
             <joint name="robot1_front_left_thigh_joint" pos="0 0 0" axis="0 1 0" range="-0.785 0.785" actuatorfrcrange="-500 500" damping="20.0" frictionloss="0.1" />
-            <geom type="mesh" mesh="left_thigh" />
+            <geom type="mesh" mesh="left_thigh" rgba="0.95 0.75 0.08 1" />
             <body name="robot1_front_left_shin_link" pos="0.426 -0.0285 0" quat="0.866025 0 -0.5 0">
               <inertial pos="-0.158 0.011 0" quat="0.514758 0.507531 0.49315 0.483984" mass="0.66" diaginertia="0.0290588 0.0290001 0.000241165" />
-              <geom type="mesh" mesh="shin" />
+              <geom type="mesh" mesh="shin" rgba="0.95 0.75 0.08 1" />
               <body name="robot1_fl_wheel_link" pos="-0.345 -0.0165 0" quat="-4.32051e-08 0 0 1">
                 <inertial pos="0 0.01 0" quat="0.707107 0 0 0.707107" mass="0.64" diaginertia="0.00325 0.001647 0.001647" />
-                <geom type="mesh" mesh="wheel" />
+                <geom type="mesh" mesh="wheel" rgba="0.95 0.75 0.08 1" />
               </body>
             </body>
           </body>
         </body>
         <body name="robot1_front_right_leg_joint_link" pos="0.282 -0.06 0.090255" quat="0.541675 -0.454519 -0.454519 -0.541675">
           <inertial pos="0 0 -0.038" mass="1.16" diaginertia="0.002 0.002 0.001" />
-          <geom type="mesh" mesh="leg_joint" />
+          <geom type="mesh" mesh="leg_joint" rgba="0.95 0.75 0.08 1" />
           <body name="robot1_front_right_thigh_link" pos="0 0 -0.114" quat="-0.596368 -0.596368 0.379928 0.379928">
             <inertial pos="0.17 -0.028 -0.014" mass="1.24" diaginertia="0.002 0.002 0.001" />
             <joint name="robot1_front_right_thigh_joint" pos="0 0 0" axis="0 -1 0" range="-0.785 0.785" actuatorfrcrange="-500 500" damping="20.0" frictionloss="0.1" />
-            <geom type="mesh" mesh="right_thigh" />
+            <geom type="mesh" mesh="right_thigh" rgba="0.95 0.75 0.08 1" />
             <body name="robot1_front_right_shin_link" pos="0.426 -0.0285 0" quat="-3.74167e-08 0.866025 -2.16026e-08 -0.5">
               <inertial pos="-0.158 0.011 0" quat="0.514758 0.507531 0.49315 0.483984" mass="0.66" diaginertia="0.0290588 0.0290001 0.000241165" />
-              <geom type="mesh" mesh="shin" />
+              <geom type="mesh" mesh="shin" rgba="0.95 0.75 0.08 1" />
               <body name="robot1_fr_wheel_link" pos="-0.345 0.0165 0">
                 <inertial pos="0 0.01 0" quat="0.707107 0 0 0.707107" mass="0.64" diaginertia="0.00325 0.001647 0.001647" />
-                <geom type="mesh" mesh="wheel" />
+                <geom type="mesh" mesh="wheel" rgba="0.95 0.75 0.08 1" />
               </body>
             </body>
           </body>
