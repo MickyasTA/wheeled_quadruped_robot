@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "wheeled_quadruped"
-version = "0.2.0"
+version = "0.3.0"
 description = "Isaac Lab 2.3.2 reinforcement-learning tasks for a wheeled quadruped that balances on its two rear wheels (balance and velocity tasks)."
 requires-python = ">=3.10"
 license = { text = "BSD-3-Clause" }
