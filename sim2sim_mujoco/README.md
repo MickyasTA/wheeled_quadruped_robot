@@ -17,15 +17,16 @@ control steps each (a full 20 s), reset with small randomization:
 | **balance** | 1000 / 1000 | 100% | | |
 | **velocity** (cmd 0.5 m/s) | 1000 / 1000 | 100% | 0.26 m/s | 0.06 rad/s |
 | **balance-rough** | 1000 / 1000 | 100% | | |
-| **velocity-rough** (cmd 0.5 m/s) | ~755 / 1000 | 0% (stays up ~75%) | 0.22 m/s | 0.45 rad/s |
+| **velocity-rough** (cmd 0.5 m/s) | ~956 / 1000 | 20% | 0.17 m/s | 0.15 rad/s |
 
-Three of the four policies transfer near-perfectly to MuJoCo: they balance, and (for
-velocity) drive to the commanded speed, in an engine they never saw during training.
-The hardest compound task, **driving while balancing on rough terrain**, only partially
-transfers: it drives but tends to fall before the full episode and drifts in yaw. That
-is the honest, useful outcome of a sim-to-sim check. It flags which policy is closest to
-the edge of its robustness and would benefit most from more domain randomization (or a
-smaller sim-to-real gap) before hardware.
+All four policies transfer well to MuJoCo: they balance, and (for the velocity tasks)
+drive to the commanded speed, in an engine they never saw during training. The two
+balance policies and the flat velocity policy survive every episode. The hardest task,
+**driving while balancing on rough terrain**, stays up about 96% of the episode on
+average and tracks its command closely, but it is the only policy that ever falls (it
+completes the full episode about 20% of the time). That is the honest, useful outcome of
+a sim-to-sim check: it flags the one policy closest to the edge of its robustness, the
+one that would benefit most from more domain randomization before hardware.
 
 Two caveats worth stating plainly. The MuJoCo model is rebuilt from the robot's URDF and
 is **not identical** to the Isaac USD (contact model, solver, and the rough height field

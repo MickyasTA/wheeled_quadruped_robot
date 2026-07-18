@@ -360,9 +360,9 @@ The policies are trained in Isaac Sim (PhysX). To check they are not overfit to 
 | Balance | 1000 / 1000 | 100% |
 | Velocity | 1000 / 1000 | 100% |
 | Balance-rough | 1000 / 1000 | 100% |
-| Velocity-rough | ~755 / 1000 | stays up ~75% |
+| Velocity-rough | ~956 / 1000 | 20% (stays up ~96%) |
 
-Three of four policies transfer near-perfectly to MuJoCo. The hardest task (drive while balancing on rough terrain) only partially transfers, which is the useful, honest signal from a sim-to-sim check: it flags the policy closest to the edge of its robustness. See [`sim2sim_mujoco/README.md`](sim2sim_mujoco/README.md) for how it works and how to run it.
+All four policies transfer well to MuJoCo. The three simplest survive every episode; the hardest task (drive while balancing on rough terrain) stays up about 96% of the episode on average and tracks its command closely, but it is the only one that ever falls, the useful and honest signal from a sim-to-sim check that flags the policy closest to the edge of its robustness. See [`sim2sim_mujoco/README.md`](sim2sim_mujoco/README.md) for how it works and how to run it.
 
 ## Pretrained models
 

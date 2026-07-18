@@ -91,8 +91,11 @@ def augment(merged_xml, rough):
     if rough:
         # rough terrain as a height field: random low-amplitude bumps (matches the
         # Isaac wheel-traversable rough terrain: ~1-6 cm roughness, no stairs).
-        ET.SubElement(asset, "hfield", {"name": "rough", "nrow": "120", "ncol": "120",
-                                        "size": "6 6 0.06 0.1"})
+        # size = (radius_x, radius_y, max_elevation, base_depth). Elevation 0.10 m,
+        # populated at runtime with rolling hills + bumps (see sim2sim._make_hfield),
+        # to mirror the Isaac rough terrain (random roughness plus gentle slopes).
+        ET.SubElement(asset, "hfield", {"name": "rough", "nrow": "160", "ncol": "160",
+                                        "size": "6 6 0.10 0.1"})
 
     worldbody = root.find("worldbody")
     ET.SubElement(worldbody, "light", {"pos": "0 0 4", "dir": "0 0 -1", "diffuse": ".8 .8 .8"})

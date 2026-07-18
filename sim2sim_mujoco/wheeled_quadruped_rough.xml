@@ -11,7 +11,7 @@
     <texture type="skybox" builtin="gradient" rgb1="0.3 0.5 0.7" rgb2="0 0 0" width="512" height="512" />
     <texture name="grid" type="2d" builtin="checker" rgb1=".1 .2 .3" rgb2=".2 .3 .4" width="300" height="300" />
     <material name="grid" texture="grid" texrepeat="8 8" reflectance=".1" />
-    <hfield name="rough" nrow="120" ncol="120" size="6 6 0.06 0.1" />
+    <hfield name="rough" nrow="160" ncol="160" size="6 6 0.10 0.1" />
   </asset>
   <worldbody>
     <body name="robot1_base_footprint" pos="0 0 0.828">

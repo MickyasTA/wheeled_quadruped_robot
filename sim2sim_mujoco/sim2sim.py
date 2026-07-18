@@ -93,11 +93,23 @@ class Robot:
             return
         nr, nc = int(m.hfield_nrow[hid]), int(m.hfield_ncol[hid])
         rng = np.random.default_rng(seed)
-        h = rng.random((nr, nc))
-        for _ in range(12):  # smooth into gentle bumps (wavelength >> wheel radius)
-            h = (h + np.roll(h, 1, 0) + np.roll(h, -1, 0) + np.roll(h, 1, 1) + np.roll(h, -1, 1)) / 5.0
-        h -= h.min()
-        h /= h.max() + 1e-9
+
+        def smooth(a, k):
+            for _ in range(k):
+                a = (a + np.roll(a, 1, 0) + np.roll(a, -1, 0) + np.roll(a, 1, 1) + np.roll(a, -1, 1)) / 5.0
+            return a
+
+        def norm(a):
+            a = a - a.min()
+            return a / (a.max() + 1e-9)
+
+        # rolling hills (low frequency, large amplitude) + small bumps (high frequency),
+        # so the terrain reads as clearly rough yet stays wheel-traversable.
+        coarse = rng.random((12, 12))
+        hills = np.kron(coarse, np.ones((nr // 12 + 1, nc // 12 + 1)))[:nr, :nc]
+        hills = smooth(hills, 25)
+        bumps = smooth(rng.random((nr, nc)), 5)
+        h = norm(0.7 * norm(hills) + 0.3 * norm(bumps))
         adr = int(m.hfield_adr[hid])
         m.hfield_data[adr:adr + nr * nc] = h.astype(np.float32).ravel()
 
