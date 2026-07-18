@@ -35,3 +35,7 @@ Thumbs.db
 # (overrides the *.pt / *.onnx ignores above)
 !pretrained/
 !pretrained/**
+
+# sim2sim MuJoCo build intermediates
+sim2sim_mujoco/_robot_merged.xml
+sim2sim_mujoco/_robot_mujoco.urdf

@@ -207,6 +207,7 @@ wheeled_quadruped_robot/
 │   ├── SETUP_WINDOWS.md                 # Windows bring-up runbook
 │   └── TRAINING.md                      # RL design document (obs/reward/event rationale)
 ├── pretrained/                          # 4 trained policies: ONNX + TorchScript + checkpoint
+├── sim2sim_mujoco/                      # cross-engine validation: run the policies in MuJoCo
 ├── scripts/
 │   ├── list_envs.py                     # list every registered Wheeled-Quadruped task
 │   ├── verify_env.py                    # smoke test: load env, random rollout, NaN/Inf checks
@@ -350,6 +351,19 @@ Yaw tracking originally plateaued below linear tracking. Raising the `track_ang_
 
 On flat ground the tuning is a clean win: yaw error drops about 14% with linear tracking unchanged, so the flat velocity policy shipped in [`pretrained/velocity/`](pretrained/velocity/) uses it. On rough terrain the same change traded roughly 26% worse forward-speed tracking for its yaw gain, so the rough velocity task keeps the balanced weights and its original policy.
 
+## Sim-to-sim validation (MuJoCo)
+
+The policies are trained in Isaac Sim (PhysX). To check they are not overfit to one physics engine, [`sim2sim_mujoco/`](sim2sim_mujoco/) runs the exact same exported actors in **MuJoCo**, an independent simulator, which is a cheap rehearsal for the eventual sim-to-real gap. The MuJoCo model is rebuilt from the robot URDF (so it is a genuine cross-engine test, not a replay), with observations, joint order, and actuators matched to the Isaac task; the actor runs in pure numpy.
+
+| Policy | MuJoCo episode length | Full-episode survival |
+|---|:---:|:---:|
+| Balance | 1000 / 1000 | 100% |
+| Velocity | 1000 / 1000 | 100% |
+| Balance-rough | 1000 / 1000 | 100% |
+| Velocity-rough | ~755 / 1000 | stays up ~75% |
+
+Three of four policies transfer near-perfectly to MuJoCo. The hardest task (drive while balancing on rough terrain) only partially transfers, which is the useful, honest signal from a sim-to-sim check: it flags the policy closest to the edge of its robustness. See [`sim2sim_mujoco/README.md`](sim2sim_mujoco/README.md) for how it works and how to run it.
+
 ## Pretrained models
 
 All four trained policies are committed in [`pretrained/`](pretrained/) for immediate use, no training required: `balance/`, `velocity/`, `balance_rough/`, and `velocity_rough/`. Each task folder ships three forms of the same network:
@@ -389,7 +403,8 @@ A full, textbook-style **[project wiki](docs/wiki/Home.md)** (`docs/wiki/`) expl
 - [x] Rough-terrain tasks (uneven ground) with a terrain-level curriculum, trained and shipped.
 - [x] Tune the velocity yaw tracking (clean win on flat ground).
 - [x] Commit trained checkpoints and demo clips (see [`pretrained/`](pretrained/)).
-- [ ] Recover the rough-terrain yaw gain without the linear-tracking trade-off.
+- [x] Sim-to-sim validation in MuJoCo (see [`sim2sim_mujoco/`](sim2sim_mujoco/)).
+- [ ] Recover the rough-terrain yaw gain without the linear-tracking trade-off, and firm up velocity-rough transfer.
 - [ ] Sim-to-real: deploy the onboard-only policy on the physical robot.
 - [ ] USD/asset hygiene: move the USD to Git LFS if it grows.
 
