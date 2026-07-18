@@ -124,11 +124,14 @@ def augment(merged_xml, rough):
         ET.SubElement(act, "velocity", {"name": j.replace("robot1_", ""), "joint": j,
                                         "kv": "10", "ctrlrange": "-40 40", "forcerange": "-100 100"})
 
-    # --- colour the robot (STL/collision geoms are otherwise flat grey; STL carries
-    # no material, and the Isaac yellow lived in the USD, not the mesh) ---
+    # --- colour the robot to match the Isaac render: body and thighs yellow, the
+    # wheels / shins / leg joints grey (STL carries no material of its own) ---
+    yellow, grey = "0.95 0.75 0.08 1", "0.55 0.55 0.58 1"
     for g in root.iter("geom"):
-        if g.get("mesh") is not None:
-            g.set("rgba", "0.95 0.75 0.08 1")  # yellow, like the Isaac render
+        mesh = g.get("mesh")
+        if mesh is None:
+            continue
+        g.set("rgba", yellow if ("body" in mesh or "thigh" in mesh) else grey)
 
     # --- spawn keyframe: base at height, identity quat, joints zero ---
     key = ET.SubElement(root, "keyframe")
