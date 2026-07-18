@@ -29,15 +29,15 @@ Three pieces, all in `sim2sim_mujoco/`.
 **The MuJoCo model is rebuilt from the URDF, not copied from Isaac.** `make_model.py` imports the robot's ROS URDF into MuJoCo. MuJoCo's handling of the URDF fixed joints reproduces exactly the merged articulation Isaac trains on: the welded legs, rear thighs, and shins collapse into one rigid base of about 17.9 kg, leaving the two front-thigh subtrees and the two rear wheels as the only moving bodies. The script then floats the base with a free joint, adds a floor (flat) or a rough height field, and adds actuators that match Isaac Lab's implicit PD:
 
 $$
-\tau_{\text{thigh}} = k_p\,(q^{*} - q) - k_d\,\dot q, \quad k_p = 1000,\ k_d = 20, \qquad
-\tau_{\text{wheel}} = k_v\,(\dot q^{*} - \dot q), \quad k_v = 10.
+\tau_{\text{thigh}} = k_p\,(q^{\ast } - q) - k_d\,\dot q, \quad k_p = 1000,\ k_d = 20, \qquad
+\tau_{\text{wheel}} = k_v\,(\dot q^{\ast } - \dot q), \quad k_v = 10.
 $$
 
 Because the model comes from the URDF rather than the Isaac USD, the contact model, solver, and terrain all genuinely differ. This is a cross-engine test, not a replay of recorded states.
 
 **The policy runs in pure numpy.** The actor is a small ELU MLP with no observation normalization (see [chapter 7](07-PPO-Algorithm.md)), so `export_policies.py` dumps its Linear layers to `policies/*.npz` and `sim2sim.py` does the forward pass with numpy alone. No torch and no onnxruntime are needed in the MuJoCo environment. This is deliberate: it is the same minimal inference path you would run on an embedded computer with the exported ONNX policy.
 
-**The observation and action conventions are matched exactly.** This is the part that makes or breaks a sim-to-sim run. The observation is assembled in the base (root) frame in the Isaac joint order `[FL_thigh, FR_thigh, rl_wheel, rr_wheel]`: base angular velocity, projected gravity $g_b = R_b^{\mathsf T}[0,0,-1]$, front-thigh positions, joint velocities, the last action, and for the velocity tasks the 3-value command. The action maps to targets exactly as in training, a thigh position target of $q^{*} = 0.5\,a$ and a wheel velocity target of $\text{scale}\cdot a$ (scale 5 for balance, 12 for velocity). Control runs at 50 Hz over a 200 Hz sim (decimation 4), matching the Isaac timing. Get any of these wrong, the joint order, a sign, the scale, and the policy receives nonsense and falls immediately, which also makes this a strict correctness check on the whole observation-action contract.
+**The observation and action conventions are matched exactly.** This is the part that makes or breaks a sim-to-sim run. The observation is assembled in the base (root) frame in the Isaac joint order `[FL_thigh, FR_thigh, rl_wheel, rr_wheel]`: base angular velocity, projected gravity $g_b = R_b^{\mathsf T}[0,0,-1]$, front-thigh positions, joint velocities, the last action, and for the velocity tasks the 3-value command. The action maps to targets exactly as in training, a thigh position target of $q^{\ast } = 0.5\,a$ and a wheel velocity target of $\text{scale}\cdot a$ (scale 5 for balance, 12 for velocity). Control runs at 50 Hz over a 200 Hz sim (decimation 4), matching the Isaac timing. Get any of these wrong, the joint order, a sign, the scale, and the policy receives nonsense and falls immediately, which also makes this a strict correctness check on the whole observation-action contract.
 
 ## 3. Results
 

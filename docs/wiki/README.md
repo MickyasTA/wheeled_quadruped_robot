@@ -1,6 +1,6 @@
 # Project Wiki
 
-This folder is the **wheeled-quadruped project wiki** — a textbook-style walkthrough of the robot, its two reinforcement-learning tasks (balance and velocity), the Isaac Lab / PPO training stack, and how to reproduce the results.
+This folder is the **wheeled-quadruped project wiki**, a textbook-style walkthrough of the robot, its two reinforcement-learning tasks (balance and velocity), the Isaac Lab / PPO training stack, and how to reproduce the results.
 
 ## → Start at [Home.md](Home.md)
 
