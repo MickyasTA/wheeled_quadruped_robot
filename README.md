@@ -430,7 +430,7 @@ If you use this work, please cite it and Isaac Lab:
   author  = {Asfaw, Mickyas Tamiru},
   title   = {Wheeled Quadruped Robot: Deep RL in Isaac Lab},
   url     = {https://github.com/MickyasTA/wheeled_quadruped_robot},
-  year    = {2024}
+  year    = {2026}
 }
 
 @article{mittal2023orbit,
